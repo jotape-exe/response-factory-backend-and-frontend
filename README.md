@@ -1,5 +1,8 @@
 # 🧩 Products API + Frontend Example
 
+<img width="1365" height="679" alt="image" src="https://github.com/user-attachments/assets/5c2fbd29-080d-42d8-b26d-fa0081e9b1b2" />
+
+
 Este repositório demonstra uma **arquitetura fullstack simples, tipada e testável**, usando:
 
 * **Backend**: Node.js + Express + TypeScript + Knex (SQLite em memória)

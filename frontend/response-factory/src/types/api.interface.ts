@@ -1,6 +1,6 @@
 export interface ApiErrorBody {
     code: string
-    details?: unknown
+    details?: any
 }
 
 export interface ApiSuccess<T> {

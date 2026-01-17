@@ -21,7 +21,7 @@
 
     <!-- CONTENT -->
     <div class="content">
-      <ProductForm :loading="loading.create" @submit="handleCreate" />
+      <ProductForm :loading="loading.create" :errors="formErrors" @submit="handleCreate" />
 
 
       <ProductList :products="products" :loading="loading.list" :deleting-id="loading.delete" @delete="handleDelete" />
@@ -37,11 +37,14 @@ import { onMounted, reactive, ref } from 'vue'
 import ProductForm from '../components/ProductForm.vue'
 import ProductList from '../components/ProductList.vue'
 import { useToast } from '../composables/useToast'
+import type { FormErrors } from '../types/form-errors.interface'
+import { mapErrors } from '../utils/form.utils'
 
 
 const toast = useToast()
 const { services } = useAPI()
 
+const formErrors = ref<FormErrors<CreateProductDTO>>({})
 const products = ref<ProductReponse[]>([])
 const searchId = ref('')
 
@@ -56,7 +59,7 @@ const loading = reactive({
 const fetchProducts = async () => {
   loading.list = true
   const res = await services.product.getAll()
-  
+
   toast.show({
     message: res.message,
     variant: res.success ? 'success' : 'warning'
@@ -80,14 +83,20 @@ const fetchById = async () => {
 
 const handleCreate = async (payload: CreateProductDTO) => {
   loading.create = true
-  const { success, message } = await services.product.insert(payload)
+  const res = await services.product.insert(payload)
   toast.show({
-    message,
-    variant: success ? 'success' : 'warning'
+    message: res.message,
+    variant: res.success ? 'success' : 'warning'
   })
-  if (success) await fetchProducts()
+  if (res.success) {
+    formErrors.value = {}
+    await fetchProducts()
+  } else {
+    formErrors.value = mapErrors(res.error.details)
+  }
   loading.create = false
 }
+
 
 
 const handleDelete = async (id: number) => {

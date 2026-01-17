@@ -12,6 +12,13 @@ export const useAxiosClient = () => {
 
     api.interceptors.request.use(
         (config) => {
+            /**
+             * Importante, este header ('application/json') pode causar conflitos caso o app 
+             * retorne um tipo de dado diferente de JSON, como Blob
+             * sendo necessario um tramamento futuro
+             * este teste é valido apenas para o cenario atual
+             */
+            config.headers['Content-Type'] = 'application/json'
             return config
         },
         (error) => Promise.reject(error)

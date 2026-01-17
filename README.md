@@ -97,30 +97,6 @@ export class ApiResponseFactory {
 
 ---
 
-## 🧠 Arquitetura do Backend
-
-```
-src
- ├── app
- │   ├── config
- │   │   └── schema.ts        # Criação de tabelas (SQLite :memory:)
- │   ├── errors
- │   │   └── AppError.ts
- │   ├── middlewares
- │   │   └── error-middleware.ts
- │   ├── repositories
- │   │   └── product-repository.ts
- │   ├── use-cases
- │   │   └── product
- │   │       ├── create-product
- │   │       ├── delete-product
- │   │       ├── find-product-by-id
- │   │       ├── list-product
- │   │       └── seed-product
- │   └── routes
- │       └── product.routes.ts
- └── server.ts
-```
 
 ### 🎯 Princípios
 

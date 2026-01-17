@@ -2,21 +2,19 @@ import { readonly, ref } from 'vue'
 import type { Toast, ToastPlacement, ToastVariant } from '../components/toast/toast.interface'
 
 const DEFAULT_DURATION = 3000
-const DEFAULT_PLACEMENT: ToastPlacement = "toast-bottom toast-end"
+const DEFAULT_PLACEMENT: ToastPlacement = 'toast-bottom toast-end'
 
 const toasts = ref<Toast[]>([])
 let idCounter = 0
 
 export const useToast = () => {
-
   const show = (options: {
     message: string
     variant?: ToastVariant
-    duration?: number,
+    duration?: number
     placement?: ToastPlacement
     showCloseIcon?: boolean
   }) => {
-
     const id = idCounter++
 
     const toast: Toast = {
@@ -36,17 +34,17 @@ export const useToast = () => {
   }
 
   const remove = (id: number) => {
-    toasts.value = toasts.value.filter(t => t.id !== id)
+    toasts.value = toasts.value.filter((t) => t.id !== id)
   }
 
   return {
     toasts: readonly(toasts),
     show,
     remove,
-    surface: (message: string, options?: any) => show({ message, variant: "surface", ...options }),
-    info: (message: string, options?: any) => show({ message, variant: "info", ...options }),
-    success: (message: string, options?: any) => show({ message, variant: "success", ...options }),
-    warning: (message: string, options?: any) => show({ message, variant: "warning", ...options }),
-    error: (message: string, options?: any) => show({ message, variant: "error", ...options }),
+    surface: (message: string, options?: any) => show({ message, variant: 'surface', ...options }),
+    info: (message: string, options?: any) => show({ message, variant: 'info', ...options }),
+    success: (message: string, options?: any) => show({ message, variant: 'success', ...options }),
+    warning: (message: string, options?: any) => show({ message, variant: 'warning', ...options }),
+    error: (message: string, options?: any) => show({ message, variant: 'error', ...options }),
   }
 }

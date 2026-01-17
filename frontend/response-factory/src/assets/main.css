@@ -1,7 +1,7 @@
 @import './base.css';
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--color-text);
   background: var(--color-background);
   transition:
@@ -67,5 +67,4 @@ a,
 
   color: var(--text);
   background-color: var(--background);
-
 }

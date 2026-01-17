@@ -1,4 +1,4 @@
-import type { FormErrors } from "../types/form-errors.interface"
+import type { FormErrors } from '../types/form-errors.interface'
 
 export const mapErrors = <T>(details: any[]): FormErrors<T> => {
   const errors: FormErrors<T> = {}

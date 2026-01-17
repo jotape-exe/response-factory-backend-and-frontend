@@ -17,20 +17,28 @@ const activePlacements = computed(() => {
   }
   return [...set]
 })
-
 </script>
 
 <template>
   <Teleport to="body">
-    <div v-for="placement in activePlacements" :key="placement" class="toast-stack" :class="placement">
+    <div
+      v-for="placement in activePlacements"
+      :key="placement"
+      class="toast-stack"
+      :class="placement"
+    >
       <TransitionGroup name="toast" tag="div" class="toast-list">
-        <AppToast v-for="toast in filteredByPlacement(placement)" :key="toast.id" :message="toast.message"
-          :variant="toast.variant" @close="remove(toast.id)" />
+        <AppToast
+          v-for="toast in filteredByPlacement(placement)"
+          :key="toast.id"
+          :message="toast.message"
+          :variant="toast.variant"
+          @close="remove(toast.id)"
+        />
       </TransitionGroup>
     </div>
   </Teleport>
 </template>
-
 
 <style scoped>
 .toast-stack {
@@ -45,7 +53,7 @@ const activePlacements = computed(() => {
   gap: 12px;
 }
 
-.toast-list>* {
+.toast-list > * {
   pointer-events: auto;
 }
 

@@ -12,9 +12,10 @@ class CreateProductController {
   async handler(request: Request, response: Response) {
     const payload = await createProductSchema
       .parseAsync(request.body)
-      .catch(() => {
+      .catch((err) => {
         throw new SchemaValidationError(
-          "Erro ao inserir, verifique os campos"
+          "Erro ao inserir, verifique os campos",
+          JSON.parse(err.message)
         );
       });
 

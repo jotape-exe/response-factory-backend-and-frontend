@@ -14,7 +14,7 @@ export interface ApiError<E = ApiErrorBody> {
     success: false
     status: number
     message: string
-    body: E
+    error: E
 }
 
 

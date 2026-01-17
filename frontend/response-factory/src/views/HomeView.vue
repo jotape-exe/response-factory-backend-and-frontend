@@ -55,12 +55,13 @@ const loading = reactive({
 
 const fetchProducts = async () => {
   loading.list = true
-  const { success, body, message } = await services.product.getAll()
+  const res = await services.product.getAll()
+  
   toast.show({
-    message,
-    variant: success ? 'success' : 'warning'
+    message: res.message,
+    variant: res.success ? 'success' : 'warning'
   })
-  if (success && body) products.value = body
+  if (res.success && res.body) products.value = res.body
   loading.list = false
 }
 
@@ -68,12 +69,12 @@ const fetchProducts = async () => {
 const fetchById = async () => {
   if (!searchId.value) return
   loading.list = true
-  const { success, body, message } = await services.product.getById(searchId.value)
+  const res = await services.product.getById(searchId.value)
   toast.show({
-    message,
-    variant: success ? 'success' : 'warning'
+    message: res.message,
+    variant: res.success ? 'success' : 'warning'
   })
-  if (success && body) products.value = [body]
+  if (res.success && res.body) products.value = [res.body]
   loading.list = false
 }
 

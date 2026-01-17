@@ -24,7 +24,7 @@ export class ApiResponseFactory {
             success: false,
             status: error.statusCode,
             message: error.message,
-            body: {
+            error: {
                 code: error.internalCode,
                 details: error.details
             }

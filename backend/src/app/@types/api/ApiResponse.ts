@@ -9,7 +9,7 @@ export interface ApiResponseError<E = unknown> {
   success: false
   status: number
   message: string
-  body: E
+  error: E
 }
 
 export type ApiResponse<T, E = unknown> =

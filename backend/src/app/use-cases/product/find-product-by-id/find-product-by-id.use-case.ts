@@ -14,6 +14,10 @@ class FindProductByIdUseCase {
             throw new NotFoundError(`Produto com id: ${id}`)
         }
 
+        if (product.isDeleted) {
+            throw new NotFoundError(`Produto com id: ${id}`)
+        }
+
         return product
     }
 }

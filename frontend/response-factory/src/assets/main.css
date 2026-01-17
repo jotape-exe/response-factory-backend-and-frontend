@@ -1,0 +1,71 @@
+@import './base.css';
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+
+:root {
+  --text: rgba(255, 255, 255, 0.87);
+  --background: #242424;
+
+  --primary: #03dac6;
+  --secondary: #6200ee;
+  --warning: #ffab00;
+  --success: #00c853;
+  --info: #2196f3;
+  --error: #b00020;
+  --surface: #333333;
+
+  --on-primary: #ffffff;
+  --on-warning: #000000;
+  --on-secondary: #000000;
+  --on-warning: #000000;
+  --on-success: #000000;
+  --on-info: #ffffff;
+  --on-error: #ffffff;
+  --on-surface: #ffffff;
+
+  color: var(--text);
+  background-color: var(--background);
+
+}

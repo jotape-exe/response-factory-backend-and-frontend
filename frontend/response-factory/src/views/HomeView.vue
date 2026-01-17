@@ -91,9 +91,12 @@ const handleCreate = async (payload: CreateProductDTO) => {
   if (res.success) {
     formErrors.value = {}
     await fetchProducts()
-  } else {
+  }
+
+  if (!res.success && res.error?.details) {
     formErrors.value = mapErrors(res.error.details)
   }
+
   loading.create = false
 }
 

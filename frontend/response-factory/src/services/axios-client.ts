@@ -30,7 +30,10 @@ export const useAxiosClient = () => {
                 success: false,
                 status: 0,
                 message: 'Erro de conexão com o servidor',
-                body: null
+                body: {
+                    code: "0",
+                    details: "Erro no servidor"
+                }
             }
 
             return errorResponse

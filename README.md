@@ -2,6 +2,10 @@
 
 <img width="1365" height="679" alt="image" src="https://github.com/user-attachments/assets/5c2fbd29-080d-42d8-b26d-fa0081e9b1b2" />
 
+Uma das coisas que me tira a paciência (especialmente no front) é o uso de try-catch em requisições http... Tipo: Pra quê ? Um erro 403, 400, 500 não é um EXCEÇÃO. É só mais um estado
+a ser tratado... receber um erro http não é inesperado a ponto que eu precise envolver meu codigo em um caríssimo try/catch...
+
+Dito isso....
 
 Este repositório demonstra uma **arquitetura fullstack simples, tipada e testável**, usando:
 
@@ -221,20 +225,7 @@ vi.spyOn(productService, 'getAll').mockResolvedValue({
 
 ---
 
-## 🚫 Overengineering?
-
-❌ Não.
-
-Motivos:
-
-* Tipagem resolve problemas reais
-* Contrato reduz bugs
-* Código continua simples
-* Escala sem refatoração traumática
-
----
-
-## 🚀 Conclusão
+## Conclusão
 
 Este projeto mostra **como organizar um CRUD moderno** com:
 
@@ -243,15 +234,4 @@ Este projeto mostra **como organizar um CRUD moderno** com:
 * arquitetura limpa
 * frontend desacoplado
 
-Sem framework mágico, sem hype — **engenharia honesta**.
 
----
-
-Se quiser evoluir:
-
-* adicionar auth
-* paginação
-* cache
-* OpenAPI / Swagger
-
-Tudo encaixa naturalmente nesse modelo.
